@@ -13,11 +13,16 @@ int fib(int n){
 }
 
 int sum(int n){
-	
-	return sum(n-1);
+	int total = 0, i = 0;
+	while(fib(i) < n){
+		if(fib(i)%2 == 0) total += fib(i);
+		i++;
+	}	
+	return total;
 }
 
 int main(){
-   int x = sum(89);
-   cout << x << endl;
+   int x;
+   cin >> x;
+   cout << sum(x) << endl;
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Sum of all the multiples of 3 or 5 below 1000
+// Sum of all the multiples of 3 or 5 below x
 
 int sum(int n){
    if(n == 0) return 0;
@@ -10,6 +10,7 @@ int sum(int n){
 }
 
 int main(){
-   int x = sum(999);
-   cout << x << endl;
+   int x;
+   cin >> x;
+   cout << sum(x) << endl;
 }
