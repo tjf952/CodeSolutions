@@ -3,7 +3,7 @@ using namespace std;
 
 /*
    Sum of the even-valued terms of the Fibonacci
-   sequence below four million
+   sequence below x
 */
 
 int fib(int n){
