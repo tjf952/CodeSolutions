@@ -24,16 +24,6 @@ long pfactor(long n){
    return largest;
 }
 
-long pfactor2(long n){
-   long largest = -1;
-   for(long i = 3; i < sqrt(n); i+=2){
-      if(n%i == 0)
-         for(int j = 2; j < sqrt(i); j++;){
-            if(i%j ==0)
-         }
-   }
-}
-
 int main(){
    long x;
    cin >> x;
