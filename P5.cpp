@@ -24,6 +24,8 @@ int sMult(int x){
 }
 
 int main(){
-    cout << sMult(20) << endl;
+    int x;
+    cin >> x;
+    cout << sMult(x) << endl;
     return 0;
 }
