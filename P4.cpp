@@ -18,7 +18,7 @@ bool palindrome(int x){
 
 int max3_b(){
     int max = 0;
-    for(int i = 0; i < 1000; i++){
+    for(int i = 101; i < 1000; i++){
         for(int j = i; j < 1000; j++){
             if(palindrome(i*j) && i*j > max) max = i*j;
         }
