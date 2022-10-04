@@ -1,11 +1,19 @@
+"""
+Given the number of bowling pins, the sum of those pin values,
+and the product of those pin values, find the exact pins that
+were knocked down
+
+Example:
+    size = number of pins
+    psum = sum of pins
+    ppro = product of the pins
+    n=3, psum=15, ppro=105 > 3,5,7
+"""
+
 import numpy
 
 
 def bowling(size, psum, ppro):
-    # size = number of pins
-    # psum = sum of pins
-    # ppro = product of the pins
-    # ex: n=3, psum=15, ppro=105 > 3,5,7
     nums = list(range(1, 11))
 
     def dfs(idx, path, cur):

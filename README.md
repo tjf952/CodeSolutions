@@ -8,6 +8,10 @@ A repository of old and new solutions from various sources!
 
 I have some solutions for 2021. When I went home for the holidays, I didn't have access to the internet so I had to stop. I'll have to come back to it.
 
+## [For Fun]
+
+A collection of unique problems that I wanted to hold on to for the future.
+
 ## [Google Kick Start](https://codingcompetitions.withgoogle.com/kickstart)
 
 > Kick Start is a global online coding competition, consisting of three-hour rounds of a variety of algorithmic challenges designed by Google engineers. Participants can compete in one or all online rounds held throughout the year, and will have the opportunity to develop and grow their programming abilities while getting a glimpse into the technical skills needed for a career at Google.

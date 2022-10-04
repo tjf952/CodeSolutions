@@ -1,6 +1,12 @@
-# WEB > BYE > YEP > SPY
-# JAW > AWE > WET > TOE
-# KITE > EDIT > DOTE > OWED > DOWN
+"""
+Will try to shift words from the starting word to the last
+word len(word) times using the letters in the last word
+
+Examples:
+    WEB > BYE > YEP > SPY
+    JAW > AWE > WET > TOE
+    KITE > EDIT > DOTE > OWED > DOWN
+"""
 
 import re
 

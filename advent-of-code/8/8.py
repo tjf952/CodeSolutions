@@ -1,12 +1,12 @@
 import sys
 
 if len(sys.argv) != 2:
-    print(f'[!] Usage: python3 {sys.argv[0]} <file>')
+    print(f"[!] Usage: python3 {sys.argv[0]} <file>")
     exit(1)
 
 file = sys.argv[1]
 
-puzzles = open(file, 'r').readlines()
+puzzles = open(file, "r").readlines()
 
 """
   0:6     1:2     2:5     3:5     4:4
@@ -29,25 +29,29 @@ b    .  b    .  .    c  b    c  b    c
 
 """
 
-seg2num = {2:1, 4:4, 3:7, 7:8}
-num2seg = {0:6, 1:2, 2:5, 3:5, 4:4, 5:5, 6:6, 7:3, 8:7, 9:6}
+seg2num = {2: 1, 4: 4, 3: 7, 7: 8}
+num2seg = {0: 6, 1: 2, 2: 5, 3: 5, 4: 4, 5: 5, 6: 6, 7: 3, 8: 7, 9: 6}
 
 ### PROBLEM 1 ###
 
+
 def find_key_values(puzzle):
     total = 0
-    for combo in puzzle.split('|')[1].split():
-        if len(combo) in seg2num.keys(): total += 1
+    for combo in puzzle.split("|")[1].split():
+        if len(combo) in seg2num.keys():
+            total += 1
     return total
+
 
 total = 0
 
 for puzzle in puzzles:
     total += find_key_values(puzzle)
 
-print(f'Problem 1: {total}')
+print(f"Problem 1: {total}")
 
 ### PROBLEM 2 ###
+
 
 def decode_puzzle(puzzle):
     decoder = {}
@@ -58,7 +62,7 @@ def decode_puzzle(puzzle):
         if key in seg2num.keys():
             decoder[seg2num[key]] = combo
 
-    for key in [1,4,7,8]:
+    for key in [1, 4, 7, 8]:
         keys.remove(decoder[key])
 
     for combo in keys:
@@ -94,12 +98,13 @@ def decode_puzzle(puzzle):
 
     return decoder
 
+
 sum_values = 0
 
 for puzzle in puzzles:
-    keys, puzzle = puzzle.split('|')
+    keys, puzzle = puzzle.split("|")
     decoder = decode_puzzle(keys)
-    num = ''
+    num = ""
     for combo in puzzle.split():
         combo = set(combo)
         for key, value in decoder.items():
@@ -107,4 +112,4 @@ for puzzle in puzzles:
                 num += str(key)
     sum_values += int(num)
 
-print(f'Problem 2: {sum_values}')
+print(f"Problem 2: {sum_values}")

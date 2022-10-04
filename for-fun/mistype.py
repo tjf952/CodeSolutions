@@ -1,3 +1,13 @@
+"""
+Solves mistyped sentence i.e. every letter is allowed
+a one off error on a US standard keyboard, will return
+a list of possible words for each mistyped word
+
+Example:
+(hello world)
+jrpki eptkd > [['hello', 'igloo'], ['dogie', 'doric', ... 'world', 'worms']]
+"""
+
 import re
 
 words = [word.strip() for word in open("words.txt", "r").readlines()]
