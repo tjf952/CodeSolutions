@@ -44,7 +44,7 @@ def brute_solve(puzzle: list) -> bool:
         solution
     """
     size = len(grid)
-    if size and int(size**.5)**2 == size and size == len(grid[0]):
+    if size and int(size**0.5) ** 2 == size and size == len(grid[0]):
         return brute_solve_helper(puzzle, 0, 0)
     else:
         print("[-] The puzzle is invalid. Reformat the puzzle and try again.")
@@ -58,7 +58,7 @@ def brute_solve_helper(grid: list, row: int, col: int) -> bool:
         grid (list): the sudoku puzzle
         row: the current row
         col: the current column
-    
+
     Returns:
         bool: bool value for successful solve
     """
@@ -66,7 +66,7 @@ def brute_solve_helper(grid: list, row: int, col: int) -> bool:
     if row == size:
         return True
     if col == size:
-
+        return True
 
 
 def function(puzzle: list) -> None:
