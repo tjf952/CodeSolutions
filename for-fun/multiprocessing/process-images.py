@@ -1,6 +1,15 @@
+#!/usr/bin/env python3
 
-import time
+"""Image Processing with MP
+
+Processes images by adding a blur and thumbnailing the size
+
+Usage: $ python3 process-images.py
+"""
+
 import concurrent.futures
+import time
+
 from PIL import Image, ImageFilter
 
 img_names = [
@@ -30,8 +39,8 @@ def process_image(img_name):
     img = Image.open(f"images/{img_name}")
     img = img.filter(ImageFilter.GaussianBlur(15))
     img.thumbnail(size)
-    img.save(f'processed/{img_name}')
-    print(f'{img_name} was processed...')
+    img.save(f"processed/{img_name}")
+    print(f"{img_name} was processed...")
 
 
 with concurrent.futures.ProcessPoolExecutor() as executor:
@@ -40,4 +49,4 @@ with concurrent.futures.ProcessPoolExecutor() as executor:
 
 t2 = time.perf_counter()
 
-print(f'Finished in {t2-t1} seconds')
+print(f"Finished in {t2-t1} seconds")
