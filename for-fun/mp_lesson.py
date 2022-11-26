@@ -13,9 +13,9 @@ import time
 
 
 def foobar(seconds: int) -> None:
-	print(f"Sleeping {seconds} second(s)...")
-	time.sleep(seconds)
-	print("Done sleeping...")
+    print(f"Sleeping {seconds} second(s)...")
+    time.sleep(seconds)
+    print("Done sleeping...")
 
 def foobar2(seconds: int) -> None:
     print(f"Sleeping {seconds} second(s)...")
