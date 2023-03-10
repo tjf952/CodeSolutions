@@ -12,8 +12,8 @@ fi
 FILE=$1
 NEW=$2
 
-BEG='To get ultimate'
-END='of secret text.'
+BEG='To get ultimate' # CHANGE THIS
+END='of secret text.' # CHANGE THIS
 
 # Replace old phrase with new phrase in the file
 sed "/${BEG}/,/${END}/ c${NEW}" $FILE
