@@ -1,0 +1,1218 @@
+---
+openapi: 3.0.3
+info:
+  title: medical-backend API
+  description: 'The ShadowHealth API provides health record management services. This document has been designed to allow customized interactions with your ShadowHealth data. <br/><br/> We recommend using cURL, HTTPie, Postman, SoapUI to make test API requests. Click on a row to get more information about each API method. <br/><br /> __This API is currently out of date. Sorry for the inconvenience.__ '
+
+  version: 1.0.0
+paths:
+  /shadow-health/v1/medicines:
+    get:
+      tags:
+        - MedicineResource
+      parameters:
+        - name: page
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: size
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+        - MedicineResource
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/medicines/{id}:
+    get:
+      tags:
+        - MedicineResource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+    put:
+      tags:
+        - MedicineResource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+    delete:
+      tags:
+        - MedicineResource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/accounts/count:
+    get:
+      tags:
+        - Account Resource
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - '**'
+  /shadow-health/v1/accounts/login:
+    post:
+      tags:
+        - Account Resource
+      parameters:
+        - name: password
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/accounts/patients/{patientId}:
+    post:
+      tags:
+        - Account Resource
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/accounts/{id}:
+    get:
+      tags:
+        - Account Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - '**'
+  /shadow-health/v1/access-history:
+    delete:
+      tags:
+        - Access History Resource
+      parameters:
+        - name: patientId
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+            - Patient
+  /shadow-health/v1/access-history/patients/{id}:
+    get:
+      tags:
+        - Access History Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+            - Patient
+  /shadow-health/v1/billings/{id}/discount_code/{code}:
+    post:
+      tags:
+        - Billing Resource
+      parameters:
+        - name: code
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+  /shadow-health/v1/employees/doctors:
+    get:
+      tags:
+        - Employee Resource
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/employees/{id}:
+    get:
+      tags:
+        - Employee Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+            - Administrator
+  /shadow-health/v1/inquiries:
+    get:
+      tags:
+        - Public Inquiry Resource
+      parameters:
+        - name: pageIndex
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            default: publishedDate
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+    post:
+      tags:
+        - Public Inquiry Resource
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/inquiries/{id}:
+    get:
+      tags:
+        - Public Inquiry Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/insurance-plans:
+    get:
+      tags:
+        - Insurance Plan Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+    post:
+      tags:
+        - Insurance Plan Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/insurance-plans/import-prices:
+    post:
+      tags:
+        - Insurance Plan Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/insurance-plans/{id}:
+    get:
+      tags:
+        - Insurance Plan Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+    delete:
+      tags:
+        - Insurance Plan Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/insurances/{id}:
+    get:
+      tags:
+        - Insurance Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+    put:
+      tags:
+        - Insurance Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+  /shadow-health/v1/internal/flag:
+    get:
+      tags:
+        - Internal Flag Resource
+      responses:
+        '200':
+          description: OK
+  /shadow-health/v1/logs:
+    get:
+      tags:
+        - Log Resource
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/patients:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: birthday
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: firstName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: phone
+          in: query
+          required: true
+          schema:
+            format: int32
+            type: integer
+      responses:
+        '200':
+          description: OK
+    post:
+      tags:
+        - Patient Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Administrator
+  /shadow-health/v1/patients/{id}:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - '**'
+  /shadow-health/v1/patients/{id}/billing:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: pageIndex
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            format: int32
+            default: 100
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            default: date
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+  /shadow-health/v1/patients/{id}/insurance:
+    post:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+    delete:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Administrator
+  /shadow-health/v1/patients/{id}/pharmacies:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/patients/{id}/prescriptions:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: pageIndex
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            default: id
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+    post:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+  /shadow-health/v1/patients/{id}/prescriptions/external-params:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+  /shadow-health/v1/patients/{id}/profile-picture:
+    post:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  format: binary
+                  type: string
+                fileName:
+                  type: string
+            encoding:
+              fileName:
+                contentType: text/plain
+              file:
+                contentType: application/octet-stream
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+  /shadow-health/v1/patients/{id}/visits:
+    get:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: pageIndex
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            default: startTime
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+    post:
+      tags:
+        - Patient Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+  /shadow-health/v1/prescriptions:
+    get:
+      tags:
+        - Prescription Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+  /shadow-health/v1/prescriptions/{id}:
+    get:
+      tags:
+        - Prescription Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+    put:
+      tags:
+        - Prescription Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/prescriptions/{id}/renew:
+    post:
+      tags:
+        - Prescription Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: quantity
+          in: query
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+  /shadow-health/v1/doctors:
+    get:
+      tags:
+        - Doctor Resource
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme: []
+  /shadow-health/v1/doctors/{id}/appointments:
+    get:
+      tags:
+        - Doctor Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: days
+          in: query
+          schema:
+            format: int64
+            default: '30'
+            type: integer
+        - name: duration
+          in: query
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme: []
+  /shadow-health/v1/treatments:
+    get:
+      tags:
+        - Treatment Resource
+      parameters:
+        - name: page
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: size
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+  /shadow-health/v1/treatments/{id}:
+    get:
+      tags:
+        - Treatment Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/visits:
+    get:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: pageIndex
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: pageSize
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            default: startTime
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/visits/{id}:
+    get:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+    put:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/visits/{id}/notes:
+    post:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/visits/{id}/prescriptions:
+    post:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+  /shadow-health/v1/visits/{id}/services:
+    get:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: page
+          in: query
+          schema:
+            format: int32
+            default: 0
+            type: integer
+        - name: size
+          in: query
+          schema:
+            format: int32
+            default: 20
+            type: integer
+        - name: sort
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+  /shadow-health/v1/visits/{visit_id}/services/{service_id}:
+    post:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: service_id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: visit_id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Patient
+            - Doctor
+    delete:
+      tags:
+        - Visit Resource
+      parameters:
+        - name: visit_id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+        - name: service_id
+          in: path
+          required: true
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Not Authorized
+        '403':
+          description: Not Allowed
+      security:
+        - SecurityScheme:
+            - Doctor
+            - Patient
+components:
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: bearer
+      bearerFormat: JWT
